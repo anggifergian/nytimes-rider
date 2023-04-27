@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func loginBtnTapped(_ sender: Any) {
-        print("Hello world")
+        print("Email: \(emailTxtField.text ?? "")")
     }
 }
 
