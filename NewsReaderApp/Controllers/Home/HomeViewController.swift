@@ -54,11 +54,24 @@ class HomeViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return newsList.count > 0 ? 1 : 0
+        }
+        
         return newsList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = homeTable.dequeueReusableCell(withIdentifier: "top_news_list_cell", for: indexPath)
+            return cell
+        }
+        
         let cell = homeTable.dequeueReusableCell(withIdentifier: "custom_news_cell", for: indexPath) as! NewsTableViewCell
         
         let news = newsList[indexPath.row]
