@@ -32,6 +32,20 @@ class NewsService {
             }
     }
     
+    func downloadImage(url: String, completion: @escaping (Result<UIImage?, Error>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    let image = UIImage(data: data)
+                    completion(.success(image))
+                case .failure(let err):
+                    completion(.failure(err))
+                }
+            }
+    }
+    
     func fetchNews(completion: @escaping (Result<[News], Error>) -> Void) {
         let urlString = "\(BASE_URL)/viewed/7.json?api-key=\(API_KEY)"
         guard let url = URL(string: urlString) else { return }

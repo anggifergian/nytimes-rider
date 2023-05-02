@@ -49,6 +49,19 @@ extension HomeViewController: UITableViewDataSource {
         cell.titleLabel.text = news.title
         cell.dateLabel.text = "\(news.section) • \(news.publishDate)"
         
+        if let url = news.media.first?.metaData.last?.url {
+            NewsService.shared.downloadImage(url: url) { result in
+                switch result {
+                case .success(let image):
+                    cell.thumbImageView.image = image
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+            }
+        } else {
+            cell.thumbImageView.image = nil
+        }
+        
         return cell
     }
 }
