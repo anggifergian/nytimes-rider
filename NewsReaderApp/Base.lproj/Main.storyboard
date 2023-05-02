@@ -127,22 +127,61 @@
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="home_cell" textLabel="Wzy-yf-yGd" style="IBUITableViewCellStyleDefault" id="LbL-Ny-fMa">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="43.666667938232422"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="custom_news_cell" rowHeight="100" id="q5U-oi-UpT" customClass="NewsTableViewCell" customModule="NewsReaderApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LbL-Ny-fMa" id="kEQ-rF-kfT">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="q5U-oi-UpT" id="2Ct-JN-yKG">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wzy-yf-yGd">
-                                                    <rect key="frame" x="20" y="0.0" width="350" height="43.666667938232422"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eVu-xg-nV8">
+                                                    <rect key="frame" x="20" y="10" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="VSb-3V-fnh"/>
+                                                        <constraint firstAttribute="width" constant="80" id="cKS-kj-faY"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xf-lj-47p">
+                                                    <rect key="frame" x="334" y="32" width="36" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="292-Sm-h3B"/>
+                                                        <constraint firstAttribute="height" constant="36" id="yNA-92-umt"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="bookmark" catalog="system"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Headline News Headline News Headline News Headline News Headline" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cK0-ak-wuh">
+                                                    <rect key="frame" x="110" y="10" width="216" height="36"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0G8-C7-22x">
+                                                    <rect key="frame" x="110" y="56" width="77.333333333333314" height="14.333333333333329"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0G8-C7-22x" firstAttribute="leading" secondItem="cK0-ak-wuh" secondAttribute="leading" id="2jw-QF-3wD"/>
+                                                <constraint firstAttribute="trailing" secondItem="6xf-lj-47p" secondAttribute="trailing" constant="20" id="A8X-2d-f41"/>
+                                                <constraint firstItem="cK0-ak-wuh" firstAttribute="leading" secondItem="eVu-xg-nV8" secondAttribute="trailing" constant="10" id="DNp-os-vpk"/>
+                                                <constraint firstAttribute="bottom" secondItem="eVu-xg-nV8" secondAttribute="bottom" constant="10" id="Gwr-Nl-Fli"/>
+                                                <constraint firstItem="6xf-lj-47p" firstAttribute="leading" secondItem="cK0-ak-wuh" secondAttribute="trailing" constant="8" id="H81-Yq-CjK"/>
+                                                <constraint firstItem="eVu-xg-nV8" firstAttribute="top" secondItem="2Ct-JN-yKG" secondAttribute="top" constant="10" id="TTe-7l-7CN"/>
+                                                <constraint firstItem="cK0-ak-wuh" firstAttribute="top" secondItem="eVu-xg-nV8" secondAttribute="top" id="fff-Eb-khA"/>
+                                                <constraint firstItem="eVu-xg-nV8" firstAttribute="leading" secondItem="2Ct-JN-yKG" secondAttribute="leading" constant="20" id="o3Y-6E-p8h"/>
+                                                <constraint firstItem="6xf-lj-47p" firstAttribute="centerY" secondItem="2Ct-JN-yKG" secondAttribute="centerY" id="ycU-ig-D4t"/>
+                                                <constraint firstItem="0G8-C7-22x" firstAttribute="top" secondItem="cK0-ak-wuh" secondAttribute="bottom" constant="10" id="zyb-IC-L2K"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="boomarkButton" destination="6xf-lj-47p" id="UIU-Cg-80Q"/>
+                                            <outlet property="dateLabel" destination="0G8-C7-22x" id="23W-Ql-Jfe"/>
+                                            <outlet property="thumbImageView" destination="eVu-xg-nV8" id="1NK-FP-gna"/>
+                                            <outlet property="titleLabel" destination="cK0-ak-wuh" id="D3g-YJ-Rp2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -163,7 +202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBD-8d-90d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871.0144927536232" y="-1106.25"/>
+            <point key="canvasLocation" x="1870.7692307692307" y="-1106.8720379146919"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="KJ8-Bj-4jK">
@@ -226,6 +265,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="newspaper" catalog="system" width="128" height="111"/>

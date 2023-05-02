@@ -43,10 +43,11 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = homeTable.dequeueReusableCell(withIdentifier: "home_cell", for: indexPath)
+        let cell = homeTable.dequeueReusableCell(withIdentifier: "custom_news_cell", for: indexPath) as! NewsTableViewCell
         
         let news = newsList[indexPath.row]
-        cell.textLabel?.text = "\(indexPath.row) - \(news.title)"
+        cell.titleLabel.text = news.title
+        cell.dateLabel.text = "\(news.section) • \(news.publishDate)"
         
         return cell
     }
