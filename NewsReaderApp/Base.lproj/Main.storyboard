@@ -134,7 +134,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eVu-xg-nV8">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eVu-xg-nV8">
                                                     <rect key="frame" x="20" y="10" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="VSb-3V-fnh"/>
@@ -169,6 +169,7 @@
                                                 <constraint firstItem="cK0-ak-wuh" firstAttribute="leading" secondItem="eVu-xg-nV8" secondAttribute="trailing" constant="10" id="DNp-os-vpk"/>
                                                 <constraint firstAttribute="bottom" secondItem="eVu-xg-nV8" secondAttribute="bottom" constant="10" id="Gwr-Nl-Fli"/>
                                                 <constraint firstItem="6xf-lj-47p" firstAttribute="leading" secondItem="cK0-ak-wuh" secondAttribute="trailing" constant="8" id="H81-Yq-CjK"/>
+                                                <constraint firstItem="6xf-lj-47p" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0G8-C7-22x" secondAttribute="trailing" constant="8" symbolic="YES" id="Pxr-jm-OVV"/>
                                                 <constraint firstItem="eVu-xg-nV8" firstAttribute="top" secondItem="2Ct-JN-yKG" secondAttribute="top" constant="10" id="TTe-7l-7CN"/>
                                                 <constraint firstItem="cK0-ak-wuh" firstAttribute="top" secondItem="eVu-xg-nV8" secondAttribute="top" id="fff-Eb-khA"/>
                                                 <constraint firstItem="eVu-xg-nV8" firstAttribute="leading" secondItem="2Ct-JN-yKG" secondAttribute="leading" constant="20" id="o3Y-6E-p8h"/>
