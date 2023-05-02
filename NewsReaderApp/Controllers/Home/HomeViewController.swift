@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeViewController: UIViewController {
 
@@ -50,14 +51,20 @@ extension HomeViewController: UITableViewDataSource {
         cell.dateLabel.text = "\(news.section) • \(news.publishDate)"
         
         if let url = news.media.first?.metaData.last?.url {
-            NewsService.shared.downloadImage(url: url) { result in
-                switch result {
-                case .success(let image):
-                    cell.thumbImageView.image = image
-                case .failure(let err):
-                    print(err.localizedDescription)
-                }
-            }
+            /**
+             [1] Alamofire
+             NewsService.shared.downloadImage(url: url) { result in
+                 switch result {
+                 case .success(let image):
+                     cell.thumbImageView.image = image
+                 case .failure(let err):
+                     print(err.localizedDescription)
+                 }
+             }
+             */
+            
+            // [2] SDWebImage
+            cell.thumbImageView.sd_setImage(with: URL(string: url))
         } else {
             cell.thumbImageView.image = nil
         }
