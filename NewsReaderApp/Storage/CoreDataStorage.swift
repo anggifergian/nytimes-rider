@@ -40,6 +40,8 @@ class CoreDataStorage {
         newsData.publishDate = news.publishDate
         newsData.mediaUrl = news.media.first?.metaData.last?.url
         
+        NotificationCenter.default.post(name: .addReadingList, object: nil)
+        
         try? context.save()
     }
     
