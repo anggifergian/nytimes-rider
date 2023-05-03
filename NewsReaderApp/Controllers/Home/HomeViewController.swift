@@ -33,8 +33,14 @@ class HomeViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         refreshControl.beginRefreshing()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(readingListDeleted(_:)), name: .deleteReadingList, object: nil)
+        
         loadLatestNews()
         loadTopNews()
+    }
+    
+    @objc func readingListDeleted(_ sender: Any) {
+        homeTable.reloadData()
     }
     
     @objc func handleRefresh() {
@@ -107,6 +113,18 @@ extension HomeViewController: UITableViewDataSource {
         cell.titleLabel.text = news.title
         cell.dateLabel.text = "\(news.section) • \(news.publishDate)"
         
+        if CoreDataStorage.shared.isAddedToReadingList(newsId: news.id) {
+            if #available(iOS 13.0, *) {
+                cell.boomarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            }
+            cell.boomarkButton.isEnabled = false
+        } else {
+            if #available(iOS 13.0, *) {
+                cell.boomarkButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            }
+            cell.boomarkButton.isEnabled = true
+        }
+        
         cell.delegate = self
         
         if let url = news.media.first?.metaData.last?.url {
@@ -154,6 +172,11 @@ extension HomeViewController: NewsTableViewCellDelegate {
         if let indexPath = homeTable.indexPath(for: cell) {
             let news = latestNewsList[indexPath.row]
             CoreDataStorage.shared.addReadingList(news: news)
+            
+            if #available(iOS 13.0, *) {
+                cell.boomarkButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            }
+            cell.boomarkButton.isEnabled = false
         }
     }
 }

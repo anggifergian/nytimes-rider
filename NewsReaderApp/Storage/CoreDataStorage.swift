@@ -60,11 +60,19 @@ class CoreDataStorage {
         if let data = try? context.fetch(fetchRequest).first {
             context.delete(data)
             
+            NotificationCenter.default.post(name: .deleteReadingList, object: nil)
+            
             try? context.save()
         }
     }
     
-    func isAddedToReadingList() -> Bool {
+    func isAddedToReadingList(newsId: Int) -> Bool {
+        let fetchRequest = NewsData.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "newsId = \(newsId)")
+        
+        if (try? context.fetch(fetchRequest).first) != nil {
+            return true
+        }
         return false
     }
     
