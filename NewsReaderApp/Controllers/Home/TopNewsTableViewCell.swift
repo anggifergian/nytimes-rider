@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol TopNewsTableViewCellDelegate: AnyObject {
+    func topNewsTableViewCellPageControlValueChanged(_ cell: TopNewsTableViewCell)
+}
+
 class TopNewsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    weak var delegate: TopNewsTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,4 +31,7 @@ class TopNewsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func pageControlValueChanged(_ sender: Any) {
+        delegate?.topNewsTableViewCellPageControlValueChanged(self)
+    }
 }

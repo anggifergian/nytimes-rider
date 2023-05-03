@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     
     weak var refreshControl: UIRefreshControl!
     weak var pageControl: UIPageControl?
+    weak var topNewsCollectionView: UICollectionView?
     
     var latestNewsList: [News] = []
     var topNewsList: [News] = []
@@ -100,9 +101,12 @@ extension HomeViewController: UITableViewDataSource {
             cell.pageControl.numberOfPages = topNewsList.count
             self.pageControl = cell.pageControl
             
+            self.topNewsCollectionView = cell.collectionView
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
             cell.collectionView.reloadData()
+            
+            cell.delegate = self
             
             return cell
         }
@@ -229,5 +233,13 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             let page = Int(scrollView.contentOffset.x / scrollView.frame.width)
             pageControl?.currentPage = page
         }
+    }
+}
+
+// MARK: - TopNewsTableViewCellDelegate
+extension HomeViewController: TopNewsTableViewCellDelegate {
+    func topNewsTableViewCellPageControlValueChanged(_ cell: TopNewsTableViewCell) {
+        let page = cell.pageControl.currentPage
+        topNewsCollectionView?.scrollToItem(at: IndexPath(item: page, section: 0), at: .centeredHorizontally, animated: true)
     }
 }

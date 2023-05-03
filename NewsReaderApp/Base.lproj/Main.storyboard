@@ -346,6 +346,9 @@
                                                     <rect key="frame" x="20" y="327.33333333333331" width="350" height="55.666666666666686"/>
                                                     <color key="pageIndicatorTintColor" systemColor="separatorColor"/>
                                                     <color key="currentPageIndicatorTintColor" systemColor="linkColor"/>
+                                                    <connections>
+                                                        <action selector="pageControlValueChanged:" destination="1vb-3M-9hu" eventType="valueChanged" id="CBs-EC-FZ1"/>
+                                                    </connections>
                                                 </pageControl>
                                             </subviews>
                                             <constraints>
