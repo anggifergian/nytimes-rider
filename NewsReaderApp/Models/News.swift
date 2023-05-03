@@ -13,7 +13,7 @@ struct News: Decodable {
     let publishDate: String
     let section: String
     let title: String
-    let media: [Media]
+    var media: [Media]
     
     enum CodingKeys: String, CodingKey {
         case url
@@ -32,5 +32,14 @@ struct News: Decodable {
         self.section = try container.decodeIfPresent(String.self, forKey: .section) ?? ""
         self.title = try container.decodeIfPresent(String.self, forKey: .title) ?? ""
         self.media = try container.decodeIfPresent([Media].self, forKey: .media) ?? []
+    }
+    
+    init(url: String, id: Int, publishDate: String, section: String, title: String, mediaUrl: String) {
+        self.url = url
+        self.id = id
+        self.publishDate = publishDate
+        self.title = title
+        self.section = section
+        self.media = [Media(type: "", caption: "", metaData: [MediaMetaData(url: mediaUrl, format: "", height: 0.0, width: 0.0)])]
     }
 }

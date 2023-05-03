@@ -24,4 +24,10 @@ struct Media: Decodable {
         caption = try container.decodeIfPresent(String.self, forKey: .caption) ?? ""
         metaData = try container.decodeIfPresent([MediaMetaData].self, forKey: .metadata) ?? []
     }
+    
+    init(type: String, caption: String, metaData: [MediaMetaData]) {
+        self.type = type
+        self.caption = caption
+        self.metaData = metaData
+    }
 }
