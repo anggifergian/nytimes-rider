@@ -17,6 +17,21 @@ class NewsService {
     
     private init() {}
     
+    func fetchTopNews(completion: @escaping (Result<[News], Error>) -> Void) {
+        let urlString = "\(BASE_URL)/viewed/1.json"
+        
+        AF.request(urlString, method: HTTPMethod.get, parameters: ["api-key": API_KEY])
+            .validate()
+            .responseDecodable(of: NewsResponse.self) { response in
+                switch response.result {
+                case .success(let newsResponse):
+                    completion(.success(newsResponse.results))
+                case .failure(let err):
+                    completion(.failure(err))
+                }
+            }
+    }
+    
     func fetchLatestNews(completion: @escaping (Result<[News], Error>) -> Void) {
         let urlString = "\(BASE_URL)/viewed/7.json"
         
