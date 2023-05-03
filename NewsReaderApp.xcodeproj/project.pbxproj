@@ -19,6 +19,8 @@
 		38A1F3672A0149D1006EF51B /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A1F3662A0149D1006EF51B /* CoreDataStorage.swift */; };
 		38A1F36A2A0151D0006EF51B /* ReadingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A1F3692A0151D0006EF51B /* ReadingListViewController.swift */; };
 		38A1F36F2A015B40006EF51B /* TopNewsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A1F36E2A015B40006EF51B /* TopNewsCollectionViewCell.swift */; };
+		38A1F3732A0205F8006EF51B /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A1F3722A0205F8006EF51B /* NewsTableViewCell.xib */; };
+		38A1F3772A020DE0006EF51B /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A1F3762A020DE0006EF51B /* NotificationExtensions.swift */; };
 		38F7D04F29FAB4550072634E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7D04E29FAB4550072634E /* AppDelegate.swift */; };
 		38F7D05129FAB4550072634E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7D05029FAB4550072634E /* SceneDelegate.swift */; };
 		38F7D05329FAB4550072634E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F7D05229FAB4550072634E /* ViewController.swift */; };
@@ -42,6 +44,8 @@
 		38A1F3662A0149D1006EF51B /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		38A1F3692A0151D0006EF51B /* ReadingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListViewController.swift; sourceTree = "<group>"; };
 		38A1F36E2A015B40006EF51B /* TopNewsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopNewsCollectionViewCell.swift; sourceTree = "<group>"; };
+		38A1F3722A0205F8006EF51B /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
+		38A1F3762A020DE0006EF51B /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		38F7D04B29FAB4550072634E /* NewsReaderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsReaderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F7D04E29FAB4550072634E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38F7D05029FAB4550072634E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			children = (
 				385A2A2F2A00ADE2009DC2A8 /* HomeViewController.swift */,
 				385A2A312A00FD57009DC2A8 /* NewsTableViewCell.swift */,
+				38A1F3722A0205F8006EF51B /* NewsTableViewCell.xib */,
 				38A1F3602A013D9B006EF51B /* TopNewsTableViewCell.swift */,
 				38A1F36E2A015B40006EF51B /* TopNewsCollectionViewCell.swift */,
 			);
@@ -124,6 +129,7 @@
 		38A1F36D2A015896006EF51B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				38A1F3762A020DE0006EF51B /* NotificationExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -245,6 +251,7 @@
 			files = (
 				38F7D05B29FAB4580072634E /* LaunchScreen.storyboard in Resources */,
 				38F7D05829FAB4580072634E /* Assets.xcassets in Resources */,
+				38A1F3732A0205F8006EF51B /* NewsTableViewCell.xib in Resources */,
 				38F7D05629FAB4550072634E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,6 +319,7 @@
 				38F7D05129FAB4550072634E /* SceneDelegate.swift in Sources */,
 				38A1F36A2A0151D0006EF51B /* ReadingListViewController.swift in Sources */,
 				385A2A2C29FF65FD009DC2A8 /* NewsService.swift in Sources */,
+				38A1F3772A020DE0006EF51B /* NotificationExtensions.swift in Sources */,
 				3871BBA729FD9675001F2453 /* Media.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,6 +22,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        homeTable.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: "custom_news_cell")
         homeTable.dataSource = self
         homeTable.delegate = self
         

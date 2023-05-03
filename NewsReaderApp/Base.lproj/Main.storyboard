@@ -111,6 +111,68 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yb4-Xk-u7C">
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="custom_news_cell" rowHeight="100" id="btV-G7-agk" customClass="NewsTableViewCell" customModule="NewsReaderApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="btV-G7-agk" id="ZbQ-4Y-0mh">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1rP-Zi-vN5">
+                                                    <rect key="frame" x="20" y="10" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="bYw-R1-RMD"/>
+                                                        <constraint firstAttribute="height" constant="80" id="lCU-fg-Dbr"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXS-Dk-dSm">
+                                                    <rect key="frame" x="334" y="32" width="36" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="bMr-xB-tdW"/>
+                                                        <constraint firstAttribute="width" constant="36" id="cCp-HF-nCd"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="bookmark" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="bookmarkButtonTapped:" destination="btV-G7-agk" eventType="touchUpInside" id="4Xi-UJ-1hU"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Headline News Headline News Headline News Headline News Headline" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vE-Ly-av8">
+                                                    <rect key="frame" x="110" y="10" width="216" height="36"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Section" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1w-i2-A04">
+                                                    <rect key="frame" x="110" y="56" width="77.333333333333314" height="14.333333333333329"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8vE-Ly-av8" firstAttribute="leading" secondItem="1rP-Zi-vN5" secondAttribute="trailing" constant="10" id="2DV-Nm-mri"/>
+                                                <constraint firstAttribute="bottom" secondItem="1rP-Zi-vN5" secondAttribute="bottom" constant="10" id="6w2-vq-IVC"/>
+                                                <constraint firstItem="lXS-Dk-dSm" firstAttribute="centerY" secondItem="ZbQ-4Y-0mh" secondAttribute="centerY" id="Awf-aL-cA4"/>
+                                                <constraint firstItem="1rP-Zi-vN5" firstAttribute="top" secondItem="ZbQ-4Y-0mh" secondAttribute="top" constant="10" id="GLM-We-nxE"/>
+                                                <constraint firstItem="lXS-Dk-dSm" firstAttribute="leading" secondItem="8vE-Ly-av8" secondAttribute="trailing" constant="8" id="KKi-3p-J98"/>
+                                                <constraint firstItem="lXS-Dk-dSm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="X1w-i2-A04" secondAttribute="trailing" constant="8" symbolic="YES" id="KgP-xs-6eY"/>
+                                                <constraint firstItem="1rP-Zi-vN5" firstAttribute="leading" secondItem="ZbQ-4Y-0mh" secondAttribute="leading" constant="20" id="ebL-n0-S0R"/>
+                                                <constraint firstItem="8vE-Ly-av8" firstAttribute="top" secondItem="1rP-Zi-vN5" secondAttribute="top" id="fsG-n9-T2Q"/>
+                                                <constraint firstAttribute="trailing" secondItem="lXS-Dk-dSm" secondAttribute="trailing" constant="20" id="gO6-Ps-22G"/>
+                                                <constraint firstItem="X1w-i2-A04" firstAttribute="top" secondItem="8vE-Ly-av8" secondAttribute="bottom" constant="10" id="wkL-9a-cbW"/>
+                                                <constraint firstItem="X1w-i2-A04" firstAttribute="leading" secondItem="8vE-Ly-av8" secondAttribute="leading" id="xVf-J4-ekS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="boomarkButton" destination="lXS-Dk-dSm" id="55k-9I-ykI"/>
+                                            <outlet property="dateLabel" destination="X1w-i2-A04" id="E2M-I8-Fst"/>
+                                            <outlet property="thumbImageView" destination="1rP-Zi-vN5" id="hbf-GV-tRl"/>
+                                            <outlet property="titleLabel" destination="8vE-Ly-av8" id="umI-s4-agN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g7i-R5-EeK"/>
