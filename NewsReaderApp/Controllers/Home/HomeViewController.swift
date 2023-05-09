@@ -51,13 +51,15 @@ class HomeViewController: UIViewController {
     
     // MARK: - Helpers
     func loadLatestNews() {
-        NewsService.shared.fetchLatestNews { result in
-            self.refreshControl.endRefreshing()
+        NewsService.shared.fetchLatestNews { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.refreshControl.endRefreshing()
             
             switch result {
             case .success(let data):
-                self.latestNewsList = data
-                self.homeTable.reloadData()
+                strongSelf.latestNewsList = data
+                strongSelf.homeTable.reloadData()
             case .failure(let err):
                 print(err.localizedDescription)
             }
@@ -65,12 +67,14 @@ class HomeViewController: UIViewController {
     }
     
     func loadTopNews() {
-        NewsService.shared.fetchTopNews { result in
-            self.refreshControl.endRefreshing()
+        NewsService.shared.fetchTopNews { [weak self] result in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.refreshControl.endRefreshing()
             switch result {
             case .success(let data):
-                self.topNewsList = data
-                self.homeTable.reloadData()
+                strongSelf.topNewsList = data
+                strongSelf.homeTable.reloadData()
             case .failure(let err):
                 print(err.localizedDescription)
             }
